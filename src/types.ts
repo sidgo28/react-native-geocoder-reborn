@@ -44,6 +44,10 @@ export interface GeocodingObject {
   subAdminArea: string | null;
 
   subLocality: string | null;
+  timeZone: {
+    offset: number;
+    name: string;
+  } | null;
 }
 
 export interface GeocoderOptions {

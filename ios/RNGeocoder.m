@@ -160,6 +160,10 @@ RCT_EXPORT_METHOD(geocodeAddressInRegion:(NSString *)address
             @"postalCode": placemark.postalCode ?: [NSNull null],
             @"adminArea": placemark.administrativeArea ?: [NSNull null],
             @"subAdminArea": placemark.subAdministrativeArea ?: [NSNull null],
+            @"timeZone": placemark.timeZone ? @{
+                @"offset": [NSNumber numberWithDouble: placemark.timeZone.secondsFromGMT / 3600.0],
+                @"name": placemark.timeZone.name
+            } : [NSNull null],
             @"formattedAddress": [lines componentsJoinedByString:@", "] ?: [NSNull null]
         };
 
